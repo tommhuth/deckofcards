@@ -1,0 +1,49 @@
+@viewport {
+    zoom: 1;
+    width: extend-to-zoom;
+}
+
+html {
+    height: 100%;
+    background-color: #FFF;
+    touch-action: manipulation;
+}
+
+body {
+    min-height: 100%;
+    background-color: #FFF;
+}
+
+* {
+    outline: none;
+    border: none;
+    box-shadow: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    background-color: transparent;
+    line-height: inherit;
+}
+
+::placeholder {
+    color: rgba(#000, .25);
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: 500;
+}
+
+button,
+label:not([for]),
+select,
+a {
+    cursor: pointer;
+}
