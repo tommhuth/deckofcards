@@ -11,8 +11,8 @@ export class Home extends React.Component {
         
         return (
             <div>
-                <h2>Home</h2>
-                {JSON.stringify(name, null, 4)}
+                <h2>Route: Home</h2>
+                <pre>{JSON.stringify(name, null, 4)}</pre>
             </div>
         )
     }

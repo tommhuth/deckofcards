@@ -1,9 +1,12 @@
 const gulp = require("gulp")
 const sass = require("gulp-sass")
 const prefix = require("gulp-autoprefixer")
+const rename = require("gulp-rename")
+const svgstore = require("gulp-svgstore")
+const svgmin = require("gulp-svgmin")
 
-gulp.task("default", ["sass", "sass:watch"])
-gulp.task("build", ["sass"])
+gulp.task("default", ["sass", "sass:watch", "icons", "icons:watch"])
+gulp.task("build", ["sass", "icons"])
 
 gulp.task("sass", function () {
     gulp.src("./resources/sass/app.scss")
@@ -14,4 +17,17 @@ gulp.task("sass", function () {
 
 gulp.task("sass:watch", () => {
     gulp.watch("./resources/sass/**/*", ["sass"])
+})
+
+gulp.task("icons:watch", () => {
+    gulp.watch("./resources/icons/*", ["icons"])
+})
+
+gulp.task("icons", () => {
+    return gulp
+        .src("resources/icons/*.svg")
+        .pipe(svgmin())
+        .pipe(svgstore())
+        .pipe(rename("iconset.svg"))
+        .pipe(gulp.dest("public/gfx"))
 })
