@@ -7,7 +7,9 @@
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack -w",
     "build-server": "babel src/server -d dist --copy-files --watch --source-maps",
-    "start": "cross-env DEBUG=server,server:* node dist/server"
+    "start": "cross-env DEBUG=server,server:* node dist/server",
+    "stylelint": "stylelint 'resources/sass/**/*.scss'",
+    "eslint":"eslint src tests"
   },
   "repository": {
     "type": "git",
