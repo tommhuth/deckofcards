@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
+    "postinstall": "webpack & babel src/server -d dist --copy-files & gulp build ",
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack -w",
     "build-server": "babel src/server -d dist --copy-files --watch --source-maps",
