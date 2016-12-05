@@ -4,7 +4,7 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "postinstall": "npm run build-server-prod && npm run build-client-prod && node node_modules/gulp/bin/gulp build && cross-env NODE_ENV=test node node_modules/mocha/bin/mocha tests --ui qunit --recursive --compilers js:babel-register",
+    "postinstall": "heroku config:set NODE_ENV=production && npm run build-server-prod && npm run build-client-prod && node node_modules/gulp/bin/gulp build && cross-env NODE_ENV=test node node_modules/mocha/bin/mocha tests --ui qunit --recursive --compilers js:babel-register",
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack -w",
     "build-client-prod": "node node_modules/webpack/bin/webpack",
