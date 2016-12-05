@@ -4,10 +4,12 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "postinstall": "webpack & babel src/server -d dist --copy-files & gulp build ",
+    "postinstall": "npm run build-server-prod && npm run build-client-prod && node node_modules/gulp/bin/gulp build",
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack -w",
+    "build-client-prod": "webpack",
     "build-server": "babel src/server -d dist --copy-files --watch --source-maps",
+    "build-server-prod": "babel src/server -d dist --copy-files  ",
     "start": "cross-env DEBUG=server,server:* node dist/server",
     "stylelint": "stylelint 'resources/sass/**/*.scss'",
     "eslint":"eslint src tests"
