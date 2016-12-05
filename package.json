@@ -7,9 +7,9 @@
     "postinstall": "npm run build-server-prod && npm run build-client-prod && node node_modules/gulp/bin/gulp build",
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack -w",
-    "build-client-prod": "node_modules/webpack/bin/webpack",
+    "build-client-prod": "node node_modules/webpack/bin/webpack",
     "build-server": "babel src/server -d dist --copy-files --watch --source-maps",
-    "build-server-prod": "node_modules/babel/bin/babel src/server -d dist --copy-files  ",
+    "build-server-prod": "node node_modules/babel-cli/bin/babel src/server -d dist --copy-files  ",
     "start": "cross-env DEBUG=server,server:* node dist/server",
     "stylelint": "stylelint 'resources/sass/**/*.scss'",
     "eslint":"eslint src tests"
