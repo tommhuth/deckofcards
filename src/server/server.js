@@ -5,6 +5,7 @@ import * as globalHandler from "./routes/global-handlers"
 import routes from "./routes"
 import debug from "debug"
 import config, { cleanConfig } from "./config/config-loader"
+import compression from "compression"
 
 export const app = express()
 const log = debug("server")
@@ -33,6 +34,7 @@ export function stop() {
 app.set("view engine", "pug")
 app.set("views", "./resources/views")
 
+app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
