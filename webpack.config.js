@@ -8,7 +8,7 @@ let plugins = [
     })
 ]
 
-if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "production") {
     plugins.push(
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
