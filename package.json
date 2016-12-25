@@ -4,13 +4,13 @@
   "description": "",
   "main": "dist/server.js",
   "scripts": {
-    "postinstall": "npm run build-server-prod && npm run build-client-prod && node node_modules/gulp/bin/gulp build && NODE_ENV=test node node_modules/mocha/bin/mocha tests --ui qunit --recursive --compilers js:babel-register",
+    "postinstall": "npm run build-server-prod && node node_modules/gulp/bin/gulp build && npm run build-client-prod && NODE_ENV=test node node_modules/mocha/bin/mocha tests --ui qunit --recursive --compilers js:babel-register",
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack -w",
     "build-client-prod": "node node_modules/webpack/bin/webpack",
-    "build-server": "babel src/server -d dist --copy-files --watch --source-maps",
-    "build-server-prod": "node node_modules/babel-cli/bin/babel src/server -d dist --copy-files  ",
-    "start": "cross-env DEBUG=server,server:* node dist/server",
+    "build-server": "babel src -d dist --copy-files --watch --source-maps",
+    "build-server-prod": "node node_modules/babel-cli/bin/babel src -d dist --copy-files  ",
+    "start": "cross-env DEBUG=server,server:* node dist/server/server.js",
     "stylelint": "stylelint 'resources/sass/**/*.scss'",
     "eslint": "eslint src tests"
   },
