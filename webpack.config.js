@@ -1,11 +1,23 @@
 const webpack = require("webpack")
 const webpackFailPlugin = require("webpack-fail-plugin")
+const fs = require("fs")
+const path = require("path")
 
 let plugins = [
     webpackFailPlugin,
     new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
-    })
+    }),
+    function () {
+        this.plugin("done", function (stats) {
+            fs.writeFileSync(
+                path.join(__dirname, "public", "js-manifest.json"),
+                JSON.stringify({
+                    "client.js": "client-" + stats.hash + ".js"
+                })
+            )
+        })
+    }
 ]
 
 if (process.env.NODE_ENV === "production") {
@@ -25,10 +37,11 @@ if (process.env.NODE_ENV === "production") {
 module.exports = {
     entry: "./src/client/client.js",
     output: {
-        filename: "public/js/client.js"
+        filename: "public/js/client-[hash].js"
     },
     module: {
         loaders: [
+            { test: /\.json$/, loader: "json" },
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,

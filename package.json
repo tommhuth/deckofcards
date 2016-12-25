@@ -12,7 +12,8 @@
     "build-server-prod": "node node_modules/babel-cli/bin/babel src -d dist --copy-files  ",
     "start": "cross-env DEBUG=server,server:* node dist/server/server.js",
     "stylelint": "stylelint 'resources/sass/**/*.scss'",
-    "eslint": "eslint src tests"
+    "eslint": "eslint src tests",
+    "dev" : "gulp & npm run build-server & npm run build-client"
   },
   "repository": {
     "type": "git",
@@ -44,9 +45,11 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-rename": "^1.2.2",
+    "gulp-rev": "^7.1.2",
     "gulp-sass": "^2.3.2",
     "gulp-svgmin": "^1.2.3",
     "gulp-svgstore": "^6.1.0",
+    "json-loader": "^0.5.4",
     "mocha": "^3.2.0",
     "nconf": "^0.8.4",
     "pug": "^2.0.0-beta6",
