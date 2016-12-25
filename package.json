@@ -2,7 +2,10 @@
   "name": "react-boilerplate",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/server.js",
+  "main": "dist/server/server.js",
+  "engines": {
+    "node": "7.3"
+  },
   "scripts": {
     "postinstall": "npm run build-server-prod && node node_modules/gulp/bin/gulp build && npm run build-client-prod && NODE_ENV=test node node_modules/mocha/bin/mocha tests --ui qunit --recursive --compilers js:babel-register",
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
