@@ -1,25 +1,25 @@
-const webpack = require('webpack');
+const webpack = require("webpack")
 const webpackFailPlugin = require("webpack-fail-plugin")
 
 let plugins = [
-	webpackFailPlugin,
-	new webpack.DefinePlugin({
-		'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-	})
+    webpackFailPlugin,
+    new webpack.DefinePlugin({
+        "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+    })
 ]
 
-if(process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
-	plugins.push(
-		new webpack.optimize.DedupePlugin(),
-		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.optimize.UglifyJsPlugin({
-			compress: { warnings: false },
-			mangle: true,
-			sourcemap: false,
-			beautify: false,
-			dead_code: true
-		})
-	)
+if (process.env.NODE_ENV === "production" || process.env.NODE_ENV === "development") {
+    plugins.push(
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.OccurenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: { warnings: false },
+            mangle: true,
+            sourcemap: false,
+            beautify: false,
+            dead_code: true
+        })
+    )
 }
 
 module.exports = {
@@ -28,7 +28,7 @@ module.exports = {
         filename: "public/js/client.js"
     },
     module: {
-        loaders:[
+        loaders: [
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
