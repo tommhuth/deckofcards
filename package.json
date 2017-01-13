@@ -16,7 +16,8 @@
     "start": "cross-env DEBUG=server,server:* node dist/server/server.js",
     "stylelint": "stylelint 'resources/sass/**/*.scss'",
     "eslint": "eslint src tests",
-    "dev" : "gulp & npm run build-server & npm run build-client"
+    "dev" : "gulp & npm run build-server & npm run build-client",
+    "dev-win" : "start /b gulp&& start /b npm run build-server&& start /b npm run build-client"
   },
   "repository": {
     "type": "git",
