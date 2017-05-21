@@ -7,9 +7,9 @@ export default class AppWrapper extends React.Component {
         return (
             <div  className="container">
                 <h1>
-                    <Icon name={IconType.Smiley} /> Hello from React
+                    Hello from React <Icon name={IconType.Smiley} /> 
                 </h1>
-                
+
                 {this.props.children}
             </div>
         )
