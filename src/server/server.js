@@ -6,7 +6,7 @@ import routes from "./routes"
 import debug from "debug"
 import config, { cleanConfig } from "./config/config-loader"
 import compression from "compression"
-import cacheBustResolver from "./helpers/cache-bust-resolver"
+import autoVersion from "./helpers/auto-version"
 
 export const app = express()
 const log = debug("server")
@@ -36,14 +36,14 @@ app.set("view engine", "pug")
 app.set("views", "./resources/views")
 
 // resolve cache busted files
-app.locals.rev = cacheBustResolver
+app.locals.autoVersion = autoVersion
 
 app.use(compression())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // static files
-app.use(serveStatic("public", { maxAge: "1 year" }))
+app.use(serveStatic("public", { maxAge: config.NODE_ENV === "production" ?  "1 year" : 0 }))
 
 // routes
 app.use("/", routes)

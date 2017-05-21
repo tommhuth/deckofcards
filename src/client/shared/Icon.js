@@ -1,5 +1,4 @@
 import React from "react"
-import manifest from "../../../public/gfx-manifest.json"
 
 export const IconType = {
     Smiley: "smiley"
@@ -13,7 +12,7 @@ export default class Icon extends React.Component {
     render() {
         return (
             <svg  key={this.id} className={"icon"} viewBox={ViewBox[this.props.name]} >
-                <use xlinkHref={ `/gfx/${manifest["iconset.svg"]}#${this.props.name}`}  />
+                <use xlinkHref={ `/gfx/iconset.svg?v=${process.env.APP_VERSION}#${this.props.name}`}  />
             </svg>
         )
     }
