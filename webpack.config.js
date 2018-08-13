@@ -1,49 +1,32 @@
-const webpack = require("webpack")
-const webpackFailPlugin = require("webpack-fail-plugin")
+const webpack = require("webpack") 
 const { version } = require("./package.json")
+const path = require("path")
 
-let plugins = [
-    webpackFailPlugin,
+let plugins = [ 
     new webpack.DefinePlugin({
         "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
         "process.env.APP_VERSION": JSON.stringify(version)
     })
-]
-
-if (process.env.NODE_ENV === "production") {
-    plugins.push(
-        new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: { warnings: false },
-            mangle: true,
-            sourcemap: false,
-            beautify: false,
-            dead_code: true
-        })
-    )
-}
+] 
 
 module.exports = {
     entry: "./src/client/client.js",
     output: {
-        filename: "public/js/client.js"
+        path: path.resolve(__dirname, "public"),
+        filename: "js/client.js"
     },
     module: {
-        loaders: [
+        rules: [
             { test: /\.json$/, loader: "json" },
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules)/,
-                loader: "babel",
-                query: {
-                    presets: ["react", "es2015", "stage-2", "stage-3"]
-                }
+                loader: "babel-loader" 
             }
         ]
     },
     resolve: {
-        extensions: ["", ".js"]
+        extensions: [ ".js"]
     },
     plugins
 }
