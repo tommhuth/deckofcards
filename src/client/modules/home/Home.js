@@ -1,6 +1,6 @@
 import React from "react"
 import { connect } from "react-redux"
-import { setName } from "../data/store/actions/name"
+import { setName } from "../../data/store/actions/name"
 
 export class Home extends React.Component {
     componentWillMount(){

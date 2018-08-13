@@ -33,7 +33,7 @@ export function stop() {
 
 // settings
 app.set("view engine", "pug")
-app.set("views", "./resources/views")
+app.set("views", "./src/resources/views")
 
 // resolve cache busted files
 app.locals.autoVersion = autoVersion

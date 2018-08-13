@@ -1,7 +1,7 @@
 import React from "react" 
 import { Route,  BrowserRouter, Switch } from "react-router-dom"
-import AppWrapper from "./app/AppWrapper"
-import Home from "./home/Home"
+import AppWrapper from "./AppWrapper"
+import Home from "../home/Home"
 
 export default ( 
     <BrowserRouter>

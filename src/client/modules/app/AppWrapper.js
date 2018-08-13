@@ -1,6 +1,7 @@
+import "./style/app.scss"
+
 import React from "react"
-import Icon, { IconType } from "../shared/Icon"
-import { Link } from "react-router-dom"
+import { Icon, IconType } from "../shared/Icon"
 
 export default class AppWrapper extends React.Component {
     render() {
