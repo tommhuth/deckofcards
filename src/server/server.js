@@ -4,7 +4,7 @@ import bodyParser from "body-parser"
 import * as globalHandler from "./routes/global-handlers"
 import routes from "./routes"
 import debug from "debug"
-import config, { cleanConfig } from "./config/config-loader"
+import config from "./config/config-loader"
 import compression from "compression"
 import autoVersion from "./helpers/auto-version"
 
@@ -15,7 +15,7 @@ let server
 export function start() {
     return new Promise((resolve) => {
         server = app.listen(config.PORT, () => {
-            log(`Ready @ localhost:${config.PORT}`, cleanConfig)
+            log(`Ready @ localhost:${config.PORT}`, config)
             resolve()
         })
     })
