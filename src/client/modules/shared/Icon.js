@@ -1,3 +1,5 @@
+import "./style/icon.scss"
+
 import React from "react"
 
 export const IconType = {

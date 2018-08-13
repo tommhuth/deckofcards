@@ -6,7 +6,7 @@ import { Icon, IconType } from "../shared/Icon"
 export default class AppWrapper extends React.Component {
     render() {
         return (
-            <div  className="container">
+            <div className="app">
                 <h1>
                     Hello from React <Icon name={IconType.Smiley} /> 
                 </h1>
