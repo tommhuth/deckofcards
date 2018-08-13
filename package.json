@@ -1,6 +1,6 @@
 {
   "name": "react-boilerplate",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "",
   "main": "dist/server/server.js",
   "engines": {
@@ -11,7 +11,7 @@
     "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
     "build-client": "webpack --mode development --watch",
     "build-client:prod": "webpack --mode production",
-    "build-server": "babel src -d dist --copy-files --watch  ", 
+    "build-server": "babel src -d dist --copy-files --watch  ",
     "start": "cross-env DEBUG=server,server:* node dist/server/server.js",
     "stylelint": "stylelint 'resources/sass/**/*.scss'",
     "eslint": "eslint src tests",
