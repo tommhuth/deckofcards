@@ -1,13 +1,13 @@
 import React from "react"
 import { connect } from "react-redux"
-import { setName } from "../../data/store/actions/name"
+import { setName } from "./store/actions/name"
 
 export class Home extends React.Component {
-    componentWillMount(){
+    componentDidMount(){
         this.props.setName("Foo")
     }
     render() {
-        let name = this.props.name
+        let { name } = this.props
         
         return (
             <div>

@@ -5,7 +5,7 @@ import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 import routes from "./modules/app/routes"
-import makeStore from "./data/store/make-store"
+import makeStore from "./data/make-store"
 
 const store = makeStore()
 

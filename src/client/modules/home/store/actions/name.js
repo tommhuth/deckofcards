@@ -1,9 +1,4 @@
-export const NameAction = {
-    Set: 1,
-    Loading: 2,
-    Loaded: 3,
-    Error: 4
-}
+import * as nameActions from "./creators/name"
 
 function fakePostName(name) {
     return new Promise((resolve) => {
@@ -13,16 +8,16 @@ function fakePostName(name) {
 
 export async function setName(name) {
     return async function (dispatch) {
-        dispatch({ type: NameAction.Loading })
+        dispatch(nameActions.loading())
 
         try {
             let result = await fakePostName(name)
 
-            dispatch({ type: NameAction.Set, payload:  result  })
+            dispatch(nameActions.set(result))
         } catch (e) {
-            dispatch({ type: NameAction.Error, payload: e })
+            dispatch(nameActions.error(e))
         } finally {
-            dispatch({ type: NameAction.Loaded })
+            dispatch(nameActions.loaded())
         }
     }
 }

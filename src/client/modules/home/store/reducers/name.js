@@ -1,4 +1,4 @@
-import { NameAction } from "../actions/name"
+import { NameAction } from "../actions/creators/name"
 
 const init = {
     loading: false,

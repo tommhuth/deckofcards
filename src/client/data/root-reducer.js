@@ -1,6 +1,6 @@
 import { combineReducers } from "redux"
-import nameRedcuer from "./name"
+import name from "../modules/home/store/reducers/name"
 
 export default combineReducers({
-    name: nameRedcuer
+    name
 })
