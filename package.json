@@ -8,7 +8,7 @@
   },
   "scripts": {
     "postinstall": "npm run build-server:prod && npm run build-client:prod",
-    "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --compilers js:babel-register",
+    "test": "cross-env NODE_ENV=test mocha tests --ui qunit --recursive --require babel-core/register",
     "build-client": "webpack --mode development --watch",
     "build-client:prod": "webpack --mode production",
     "build-server": "babel src -d dist --copy-files --watch  ",

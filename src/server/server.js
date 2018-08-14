@@ -2,26 +2,26 @@ import express from "express"
 import serveStatic from "serve-static"
 import bodyParser from "body-parser"
 import * as globalHandler from "./routes/global-handlers"
-import routes from "./routes"
+import routes from "./routes/all-routes"
 import debug from "debug"
 import config from "./config/config-loader"
 import compression from "compression"
 import autoVersion from "./helpers/auto-version"
 
-export const app = express()
-const log = debug("server")
+let app = express()
+let log = debug("server")
 let server
 
-export function start() {
+function start() {
     return new Promise((resolve) => {
         server = app.listen(config.PORT, () => {
-            log(`Ready @ localhost:${config.PORT}`, config)
+            log(`Ready @ localhost:${config.PORT} -- ${config.NODE_ENV}`)
             resolve()
         })
     })
 }
 
-export function stop() {
+function stop() {
     return new Promise((resolve) => {
         if (server) {
             server.close()
@@ -58,3 +58,5 @@ app.use(globalHandler.notFound)
 if (!config.NODE_ENV.includes("test")) {
     start()
 }
+
+export { start, stop, app } 
