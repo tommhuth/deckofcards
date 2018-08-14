@@ -6,7 +6,7 @@ suite("App route: /")
 test("Should get start page", (done) => {
     supertest(app)
         .get("/")
-        .expect('Content-Length', "272") 
+        .expect("Content-Length", "272") 
         .expect(200)
         .end(done)
 })

@@ -59,4 +59,4 @@ if (!config.NODE_ENV.includes("test")) {
     start()
 }
 
-export { start, stop, app } 
+export { start, stop, app }
