@@ -1,0 +1,15 @@
+.page {
+    animation: slide .35s; 
+} 
+
+@keyframes slide {
+    from {
+        transform: translateX(-15px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(-0);
+        opacity: 1;
+    }
+}

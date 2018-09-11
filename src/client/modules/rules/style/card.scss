@@ -1,0 +1,77 @@
+.card {
+    width: 7em;
+    height: 11em;
+    border-radius: .5em;
+    background-color: #DDD;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+    line-height: 1;
+
+    &__rank {
+        position: absolute;
+        width: 4em;
+        height: 1em;
+        text-align: center;
+        font-size: 1.75em;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    &__suit {
+        position: absolute;
+        height: 1em;
+        width: 4em;
+
+        &--top {
+            left: .5em;
+            top: .5em;
+        }
+
+        &--bottom {
+            right: .5em;
+            bottom: .5em;
+            text-align: right;
+        }
+    }
+}
+
+.face {
+    text-align: center;
+    padding: 1em;
+
+    &__dot {
+        width: 1em;
+        height: 1em;
+        border-radius: 50%;
+        background: #DDD;
+        border: 4px solid transparent;
+        background-clip: padding-box;
+        display: inline-block;
+
+        &::before {
+            width: 100%;
+            height: 100%;
+            border: 3px solid #FFF;
+            border-radius: 50%;
+            display: block;
+            content: "";
+            pointer-events: none;
+            box-sizing: border-box; 
+        }
+        
+        &--red {
+            background-color: red;
+        }
+
+        &--black {
+            background-color: black;
+        }
+
+        &--on {
+            border: 4px solid #000;
+        }
+    }
+}

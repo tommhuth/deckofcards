@@ -12,6 +12,8 @@ html {
 body {
     min-height: 100%;
     background-color: #FFF;
+    font-size: 1.25em; 
+    font-family: "Noto Serif";
 }
 
 * {
@@ -46,4 +48,13 @@ label:not([for]),
 select,
 a {
     cursor: pointer;
+}
+
+
+
+@media (max-width: 950px) {
+    nav li {
+        display: inline-block;
+        margin-left: 1em;
+    }
 }
