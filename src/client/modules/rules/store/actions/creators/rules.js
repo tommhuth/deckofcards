@@ -1,6 +1,6 @@
 export const RulesAction = {
     AddRule: "rules:add-rule", 
-    SetMatch: "rules:set-match", 
+    SetMatches: "rules:set-matches", 
 }
 
 export function addRule(payload){
@@ -10,9 +10,9 @@ export function addRule(payload){
     }
 }
 
-export function setMatch(payload){
+export function setMatches(payload){
     return { 
-        type: RulesAction.SetMatch, 
+        type: RulesAction.SetMatches, 
         payload: payload
     }
 }

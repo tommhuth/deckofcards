@@ -3,7 +3,7 @@ import { RulesAction } from "../actions/creators/rules"
 const init = { 
     active: [],
     archive: [],
-    match: null,
+    matches: [],
 }
 
 export default function (state = init, { type, payload }) {
@@ -16,10 +16,10 @@ export default function (state = init, { type, payload }) {
                     payload
                 ]
             } 
-        case RulesAction.SetMatch:
+        case RulesAction.SetMatches:
             return { 
                 ...state, 
-                match: { ...payload }
+                matches: payload
             } 
         default:
             return state

@@ -2,6 +2,7 @@ import React from "react"
 import Page from "../../app/Page"
 import { connect } from "react-redux"
 import { pullCard, resetDeck } from "../store/actions/deck" 
+import Rule from "../../rules/Rule"
 
 export class Deck extends React.Component { 
     pullCard(){
@@ -20,7 +21,11 @@ export class Deck extends React.Component {
 
                 <hr />
                 
-                {rules.match ? <p>{rules.match.text}</p> : null}
+                <div style={{ padding: 16, border: "1px solid #DDD"}}> 
+                    <ul>
+                        {rules.matches.map(i => <li key={i.id}><Rule rule={i} /></li>)}
+                    </ul>
+                </div>  
 
                 <div style={{ padding: 16, border: "1px solid #DDD"}}> 
                     <ul>
