@@ -12,10 +12,8 @@ export function addRule(rule) {
     }
 }
 
-export function checkMatch() {
-    return function (dispatch, state) {
-        let rules = state().rules.active
-        let card = state().deck.used[0]
+export function checkMatch(rules, card) {
+    return function (dispatch, state) { 
         let matches = getMatches(rules, card)
         
         if (matches.length) { 
@@ -25,9 +23,9 @@ export function checkMatch() {
         dispatch(rulesActions.setMatches(matches))
     }
 }
-export function getMatches(rules, card) {
+export function getMatches(rules = [], card) {
     let result = []
-
+    
     for (let rule of rules) {
         let set = { ...rule.set }
 

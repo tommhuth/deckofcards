@@ -19,11 +19,11 @@ function renderColor({ isRed, isBlack }) {
 }
 
 function renderRank({ rank, isFace }){
-    return <span className="rule__rank">{isFace ? "<any face>" : rank || "<any rank>"}</span>
+    return <span className="rule__rank">{isFace ? "Any face" : rank || "Any rank"}</span>
 }
 
 function renderSuit({ suit }){
-    return <span className="rule__suit">{suit || "<any suit>"}</span>
+    return <span className="rule__suit">{suit || "any suit"}</span>
 }
 
 export default function({ rule }) {

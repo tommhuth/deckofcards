@@ -1,0 +1,7 @@
+.container {
+    @include container;
+
+    &--padded {
+        padding-top: var(--header-height);
+    }
+}

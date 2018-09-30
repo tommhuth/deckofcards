@@ -1,8 +1,11 @@
 import { PlayersAction } from "../actions/creators/players"
 
+
+let start = { id: 1, name: "Fry", color: "red" } 
+
 const init = { 
-    roster: [], 
-    active: null,
+    roster: [start, { id: 2, name: "Leela", color: "purple" }, { id: 3, name: "Farnsworth", color: "blue" } ], 
+    active: start,
 }
 
 export default function (state = init, { type, payload }) {

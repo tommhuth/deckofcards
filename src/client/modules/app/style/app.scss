@@ -1,80 +1,127 @@
-.app {
-    display: flex;
-    height: 100vh;
-    width: 100vw;
-    align-self: strech-items;
-
-    @media (max-width: 950px) { 
-        flex-wrap: wrap;
-        align-self: auto;
-        height: auto;
-    }
-
-    &__logo {
-        display: block;
-        position: absolute;
-        left: 5vw;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 1.5em;
-        font-weight: 400;
-
-        @media (max-width: 950px) {
-            position: static;
-            transform: none;
-            font-size: 1.125em;
-            flex: none;
-            padding: 1.5rem 2rem;
-        }
-
-        span {
-           font-size: 1.15em;
-           font-family: serif; 
-           font-style: italic;
-        }
-    }
-
-    &__nav {
-       flex: none;
-       align-self: flex-end; 
-       padding: 5vw;
-       padding-bottom: 6vw;
-       width: 25vw;
-
-       @media (max-width: 950px) {
-           position: static;
-           flex: none;
-           width: auto; 
-           padding-top: 1.5em;
-           padding-right: 2em;
-           padding-bottom: 1.5em;
-           padding-left: 0;
-           margin-right: 0;
-           margin-left: auto;
-           align-self: flex-start;
-       }
-    }
-
+.app { 
+    min-height: 100vh;
+    
     &__main {
-       flex: 1;
-       display: flex; 
-   
-       @media (max-width: 950px) {
-           display: block; 
-           flex-basis: 100%;
-           width: 100vw;
-           padding: 2em; 
-           border-top: 1px solid #CCC;
-       }
+        min-height: 100vh;
+    }
 
-       .page {
-           flex: 1;
-           align-self: flex-end; 
-           min-height: calc(50vh - 6vw + 1.5em);
-           margin-top: 5vw;
-           flex-wrap: wrap;
-           margin-bottom: 6vw; 
-           padding-right: 6vw;
-       } 
+    &__header {
+        padding-top: 1.5em;
+        position: absolute;
+        z-index: 1;
+        top:0;
+        left:0;
+        right:0;
+
+        &-inner { 
+            flex-wrap: wrap;
+            display: flex; 
+            
+            @include container;
+        }
+    
+        &__logo {
+            flex: none;
+            margin-left: 0;
+            margin-right: auto;
+            text-transform: uppercase;
+        }
+    
+        &__nav {
+            flex: none;
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        &__ruler { 
+            flex-basis: 100%;
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+            border-bottom: .1em solid rgba(#FFF, .15);
+        }
+    }
+}
+
+.nav {
+    text-transform: lowercase;
+    font-family: "EB Garamond", serif;
+    font-weight: 400;
+
+    .active {
+        font-style: italic;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            flex: none;
+            margin-left: 1em;
+        }
+    } 
+}
+
+
+
+
+
+
+
+.toolbar {
+    position: fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    text-transform: uppercase;
+    z-index: 1;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        li {
+            flex: none; 
+        }
+    }
+
+    &__inner { 
+        @include container;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        padding-bottom: 1.5em;
+    }
+
+    &__stuff {
+        flex: none;
+        margin-left: 0;
+        margin-right: auto;
+
+        li {
+            margin-right: 1em;
+        }
+    }
+
+    &__people {
+        flex: none;
+        margin-left: auto;
+        margin-right: 0;
+        
+        .active {
+            font-weight: 600;
+        }
+
+        li {
+            margin-left: 1em;
+        }
+    }
+
+    &__ruler { 
+        flex-basis: 100%;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        border-bottom: .1em solid rgba(#FFF, .15);
     }
 }

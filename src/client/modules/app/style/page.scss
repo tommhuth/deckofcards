@@ -1,16 +1,16 @@
 .page {
-    animation: slide .35s; 
-    transform: translateY(-25%);
+    animation: slide .35s;  
+    min-height: 100vh;
 } 
 
 @keyframes slide {
     from {
-        transform: translateX(-15px) translateY(-25%);
+        transform: translateX(-15px);
         opacity: 0;
     }
 
     to {
-        transform: translateX(-0) translateY(-25%);
+        transform: translateX(-0);
         opacity: 1;
     }
 }

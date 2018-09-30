@@ -54,7 +54,10 @@ module.exports = {
                     MiniCssExtractPlugin.loader,
                     "css-loader",
                     {
-                        loader: "sass-loader"
+                        loader: "sass-loader",
+                        options: {
+                            data: "@import \"./src/resources/sass/helpers\";",
+                        },
                     },
                 ],
             },

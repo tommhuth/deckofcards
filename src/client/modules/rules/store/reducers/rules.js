@@ -1,7 +1,7 @@
 import { RulesAction } from "../actions/creators/rules"
 
 const init = { 
-    active: [],
+    active: [ { set: { isRed: true }, text: "Lorem ipsum dolor sitamet blah Fututrama lols" }],
     archive: [],
     matches: [],
 }

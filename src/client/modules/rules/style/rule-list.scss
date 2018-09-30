@@ -1,0 +1,9 @@
+.rule-list {
+    margin: 2.5em 0;
+
+    > li:not(:last-child) .rule {
+        border-bottom: 1px dashed #555;
+        padding-bottom: 1.5em;
+        margin-bottom: 1.5em;
+    }
+}

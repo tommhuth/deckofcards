@@ -4,14 +4,15 @@ import { connect } from "react-redux"
 import Rank from "../deck/const/Rank"
 import Suit from "../deck/const/Suit"
 import { addRule } from "./store/actions/rules"
-import { getMatchGrade } from "./store/actions/rules"
-import Card from "../deck/Card"
+import { getMatchGrade } from "./store/actions/rules" 
 import React from "react" 
 import css from "classnames"
-import AutoTextarea from "../shared/AutoTextarea";
+import AutoTextarea from "../shared/AutoTextarea"
+import Page from "../app/Page"
+import Container from "../app/Container"
 
 const suits = [...Object.values(Suit), null]
-const ranks = [...Object.values(Rank), null, "<any face>"]
+const ranks = [...Object.values(Rank), null, "Any face"]
   
 export class RuleWizard extends React.Component { 
     state = {
@@ -64,71 +65,75 @@ export class RuleWizard extends React.Component {
     render() {  
         let { isBlack, isRed, suit, rank, matchGrade } = this.state 
 
-        return ( 
+        return (  
             <form 
                 className="rule-wizard"
                 onSubmit={(e) => {
                     e.preventDefault() 
                     this.addRule()
-                }}
-            >   
-                <div className="rule-wizard__card">
-                    <Card 
-                        suit={suit || "<any suit>"}
-                        rank={rank || "<any rank>"}
-                        onRankClick={() => this.nextRank()}
-                        onSuitClick={() => this.nextSuit()}
-                    /> 
-                </div>
-  
-                <div className="rule-wizard__color"> 
-                    <div 
-                        className={css(
-                            "rule-wizard__color__dot", 
-                            "rule-wizard__color__dot--black", 
-                            {  
-                                "rule-wizard__color__dot--on": isBlack
-                            })
-                        } 
-                        onClick={e =>  this.setColor(true, null)}>  
-                    </div>  
-                    <div  
-                        className={css(
-                            "rule-wizard__color__dot", 
-                            "rule-wizard__color__dot--red", 
-                            {  
-                                "rule-wizard__color__dot--on": isRed
-                            })
-                        } 
-                        onClick={e =>  this.setColor(null, true)}>  
-                    </div>  
- 
-                    <div 
-                        className={css(
-                            "rule-wizard__color__dot",  
-                            {  
-                                "rule-wizard__color__dot--on": !isBlack && !isRed
-                            })
-                        } 
-                        onClick={e =>  this.setColor(null, null) }>  
-                    </div>  
+                }}>   
+                <div className="rule-wizard__group">
+                    <h2 className="rule-wizard__legend">Rule set</h2>
+                    <div className="rule-wizard__card">
+                        <span onClick={() => this.nextRank()}>
+                            {rank || "Any rank"}
+                        </span>
+                        {" of "} 
+                        <span onClick={() => this.nextSuit()}>
+                            {suit || "any suit"}
+                        </span>
+                    </div>
                 </div>
 
-                <div className="rule-wizard__match-meter">
-                    <p>Match-o-meter: {(Math.floor(matchGrade * 1000) / 10)}%</p>
-                </div> 
+                <div className="rule-wizard__group">
+                    <h2 className="rule-wizard__legend">Color</h2>
+                    <div className="rule-wizard__color"> 
+                        <div 
+                            className={css(
+                                "rule-wizard__color__dot", 
+                                "rule-wizard__color__dot--black", 
+                                {  
+                                    "rule-wizard__color__dot--on": isBlack
+                                })
+                            } 
+                            onClick={e =>  this.setColor(true, null)}>  
+                        </div>  
+                        <div  
+                            className={css(
+                                "rule-wizard__color__dot", 
+                                "rule-wizard__color__dot--red", 
+                                {  
+                                    "rule-wizard__color__dot--on": isRed
+                                })
+                            } 
+                            onClick={e =>  this.setColor(null, true)}>  
+                        </div>  
+                        <div 
+                            className={css(
+                                "rule-wizard__color__dot",  
+                                {  
+                                    "rule-wizard__color__dot--on": !isBlack && !isRed
+                                })
+                            } 
+                            onClick={e =>  this.setColor(null, null) }>  
+                        </div>  
+                    </div>
+                </div>
 
-                <div className="rule-wizard__text"> 
-                    <AutoTextarea 
-                        label="Rule text" 
-                        placeholder="Rule text goes here"
-                        onChange={value => this.setState({ text: value })} /> 
+                <div className="rule-wizard__group rule-wizard__group--full">
+                    <h2 className="rule-wizard__legend">Text</h2>
+                    <div className="rule-wizard__text"> 
+                        <AutoTextarea
+                            label="Rule text" 
+                            placeholder="Rule text goes here"
+                            onChange={value => this.setState({ text: value })} /> 
+                    </div>
                 </div>
 
                 <div className="rule-wizard__footer">
-                    <button type="submit">Add rule</button>  
+                    <button className="button" type="submit">Add rule</button>  
                 </div>
-            </form>  
+            </form>    
         )
     }
 }
@@ -141,3 +146,16 @@ export default connect(
         }
     }
 )(RuleWizard)
+
+
+
+/*
+
+<Card 
+                        suit={suit || "<any suit>"}
+                        rank={rank || "<any rank>"}
+                        onRankClick={() => this.nextRank()}
+                        onSuitClick={() => this.nextSuit()}
+                    /> 
+
+*/

@@ -9,7 +9,7 @@ export function pullCard() {
         if (!empty) { 
             dispatch(nextPlayer()) 
             dispatch(deckActions.pullCard(state().players.active))
-            dispatch(checkMatch())
+            //dispatch(checkMatch())
         }
     }
 }
