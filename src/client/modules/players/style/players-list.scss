@@ -1,0 +1,11 @@
+.players-list {
+    margin-top: 2.5em;
+
+    &__element {
+        padding-top: 1.35em;
+        padding-bottom: 1.35em;
+        font-size: 1.25em;
+        text-transform: uppercase;
+        color: #FFF;
+    }
+}

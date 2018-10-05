@@ -6,7 +6,7 @@ export const PlayersAction = {
 export function addPlayer(name, color, id){
     return { 
         type: PlayersAction.AddPlayer, 
-        payload: { name, color, id }  
+        payload: { name, color, id, createdAt: new Date().toISOString() }  
     }
 }
 
@@ -16,4 +16,3 @@ export function setActivePlayer(player){
         payload: player   
     }
 }
- 

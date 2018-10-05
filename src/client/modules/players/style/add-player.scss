@@ -1,0 +1,31 @@
+.add-player { 
+    display: flex;
+    max-width: 30em;
+    margin: 2em auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    &__input {
+        &-wrapper {
+            flex: 1;  
+        }
+
+        padding: 1em;
+        text-transform: uppercase;
+        background-color: rgba(#FFF, .15);
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+    &__submit { 
+        &-wrapper {
+            flex: 0; 
+        }
+
+        background-color: #FFF;
+        color: #222;
+        text-transform: uppercase;
+        padding: 0 2em;
+        height: 100%;
+    }
+}
