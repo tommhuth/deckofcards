@@ -7,7 +7,7 @@ import sortArray from "sort-array"
 export default function({ players }) {
     return (
         <ul className="players-list">
-            {sortArray(players, "createdAt", "name").reverse().map(player => (
+            {sortArray(players, ["createdAt", "name"]).reverse().map(player => (
                 <li 
                     className="players-list__element"
                     key={player.id} 
