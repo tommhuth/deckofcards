@@ -1,10 +1,14 @@
 import { PlayersAction } from "../actions/creators/players"
 
 
-let start = { id: 1, name: "Fry", color: "red" } 
+let start = { id: 1, name: "Fry", color: "red", createdAt: new Date().toISOString() } 
 
 const init = { 
-    roster: [start, { id: 2, name: "Leela", color: "purple" }, { id: 3, name: "Farnsworth", color: "blue" } ], 
+    roster: [
+        start, 
+        { id: 2, name: "Leela", color: "purple", createdAt: new Date().toISOString() }, 
+        { id: 3, name: "Farnsworth", color: "blue", createdAt: new Date().toISOString() } 
+    ], 
     active: start,
 }
 

@@ -47,7 +47,7 @@ export class Deck extends React.Component {
                         <Container>
                             <Poster> 
                                 <Icon type={IconType.HandEmpty} />
-                                <p>Click to make new deck</p>
+                                <p>Click to start over</p>
                             </Poster>
                         </Container>
                     </Only>
@@ -55,7 +55,7 @@ export class Deck extends React.Component {
                         <Container>
                             <Poster> 
                                 <Icon type={IconType.HandCards} />
-                                <p>Click to start and pull a card</p>
+                                <p>Click to pull a card</p>
                             </Poster>
                         </Container>
                     </Only>
