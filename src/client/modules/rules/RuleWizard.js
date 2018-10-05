@@ -120,7 +120,7 @@ export class RuleWizard extends React.Component {
                     </div>
                 </div>
 
-                <div className="rule-wizard__group rule-wizard__group--full">
+                <div className="rule-wizard__group">
                     <h2 className="rule-wizard__legend">Text</h2>
                     <div className="rule-wizard__text"> 
                         <AutoTextarea

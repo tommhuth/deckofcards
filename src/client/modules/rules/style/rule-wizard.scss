@@ -2,14 +2,17 @@
      display: flex;
      flex-direction: row;
      flex-wrap: wrap;
-
+     text-align: center;
+     align-items: center;
+ 
      &__group {
-        flex: none;
-        margin-right: 2.5em;
+        flex: 1;
+        flex-basis: 100%;
 
-        &--full {
-            flex-basis: 100%;
-            margin-right: 0;
+        &--inline {
+            flex: 0;
+            flex-basis: 0;
+            margin-right: 2.5em;
         }
      }
 
@@ -60,8 +63,7 @@
          font-family: "AB Garamond";
          text-transform: lowercase;
          line-height: 1.35;
-         font-size: 1.5em;
-         text-transform: lowercase;
+         font-size: 1.5em; 
          font-weight: 400;
          font-style: italic;
          
@@ -71,7 +73,8 @@
      }
 
      &__footer {
-         margin-top: 2em;
+         margin-top: 3em;
+         flex: 1;
      }
  }
 
