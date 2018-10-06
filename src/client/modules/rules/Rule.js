@@ -18,7 +18,7 @@ function renderColor({ isRed, isBlack }) {
     }
 
     return (
-        <div className={"rule__color " + res } />
+        <span className={"rule__color " + res } />
     )
 }
 

@@ -1,14 +1,13 @@
 .rule {
     text-transform: uppercase;
 
-    &__text {
-        vertical-align: middle;
+    &__text { 
     }
 
     &__color {
         width: .5em;
-        height: .5em;
-        vertical-align: middle;
+        height: .5em; 
+        margin-bottom: .125em;
         display: inline-block;
         margin-left: .5em;
         border-radius: 50%;
