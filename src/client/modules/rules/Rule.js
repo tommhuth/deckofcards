@@ -5,6 +5,10 @@ import React from "react"
 function renderColor({ isRed, isBlack }) {
     let res = "" 
 
+    if (!isBlack && !isRed) {
+        return null
+    }
+
     if (isBlack) {
         res = "rule__color--black"
     }
@@ -29,12 +33,12 @@ function renderSuit({ suit }){
 export default function({ rule }) {
     return (
         <div className="rule">
-            {renderColor(rule.set)}
             <span className="rule__text">
                 {renderRank(rule.set)}
                 {" of "}
                 {renderSuit(rule.set)}
             </span>
+            {renderColor(rule.set)}
         </div>
     )
 }

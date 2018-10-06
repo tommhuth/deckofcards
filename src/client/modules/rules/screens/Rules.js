@@ -1,4 +1,4 @@
-import "../style/rule-list.scss"
+import "../style/rules-list.scss"
 
 import React from "react"
 import Page from "../../app/Page"
@@ -17,12 +17,14 @@ export class Rules extends React.Component {
                     <RuleWizard /> 
                 </Container> 
                 
-                <ul className="rule-list">
+                <h2 className="h3">Active rules</h2>
+                <ul className="rules-list">
                     {rules.active.map((rule, index) => (
-                        <li className="rule-list__element" key={index}>
-                            <Container> 
+                        <li className="rules-list__element" key={index}> 
+                            <div className="rules-list__element__rule"> 
                                 <Rule rule={rule} />
-                            </Container>
+                            </div>
+                            <p className="rules-list__element__text">{rule.text}</p> 
                         </li>
                     ))}
                 </ul>

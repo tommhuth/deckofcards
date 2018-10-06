@@ -21,7 +21,7 @@ export class RuleWizard extends React.Component {
         isFace: null,
         isBlack: null, 
         isRed: null, 
-        text: "",
+        text: "Everybody drinks!",
         matchGrade: 0
     } 
     componentDidMount(){
@@ -125,7 +125,7 @@ export class RuleWizard extends React.Component {
                     <div className="rule-wizard__text"> 
                         <AutoTextarea
                             label="Rule text" 
-                            placeholder="Rule text goes here"
+                            value="Everybody drinks!"
                             onChange={value => this.setState({ text: value })} /> 
                     </div>
                 </div>

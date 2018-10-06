@@ -11,7 +11,7 @@ export default class Deck extends React.Component {
     render() {  
         return (
             <Page>
-                <Container> 
+                <Container padded> 
                     <h1 className="h1">
                         Stack<br/> of cards
                     </h1>

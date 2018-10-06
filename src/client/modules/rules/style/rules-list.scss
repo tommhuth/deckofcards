@@ -1,0 +1,43 @@
+.rules-list {
+    margin-bottom: 3em; 
+    
+    &__element {
+        @include container;
+
+        &::after { 
+            width: 100%;
+            display: none; 
+            height: .1em;
+            margin-top: 1.75em;
+            margin-bottom: 1.75em;
+            content: "";
+            flex-basis: 100%; 
+            background-image: linear-gradient(to right, white 33%, rgba(255,255,255,0) 0%);
+            background-position: bottom;   
+            background-size: .925em .15em;
+            background-repeat: repeat-x;
+            opacity: .1;
+        }
+
+        &:not(:last-child)::after { 
+            display: block;
+        }
+
+        &__rule {
+            font-size: 1.5em;
+            font-weight: 500;
+            margin-bottom: .5em;
+            opacity: .45;
+        }
+
+        &__text {
+            font-size: 2.5em;
+            line-height: 1.15;
+            max-width: 15em;
+            font-family: "AB Garamond";
+            font-style: italic;
+            text-transform: lowercase;
+            font-weight: 400;
+        }
+    }
+}
