@@ -8,8 +8,7 @@ import { getMatchGrade } from "./store/actions/rules"
 import React from "react" 
 import css from "classnames"
 import AutoTextarea from "../shared/AutoTextarea"
-import Page from "../app/Page"
-import Container from "../app/Container"
+import { capitalize } from "../../data/helpers/utils"
 
 const suits = [...Object.values(Suit), null]
 const ranks = [...Object.values(Rank), null, "Any face"]
@@ -67,72 +66,93 @@ export class RuleWizard extends React.Component {
 
         return (  
             <form 
-                className="rule-wizard"
                 onSubmit={(e) => {
                     e.preventDefault() 
                     this.addRule()
                 }}>   
-                <div className="rule-wizard__group">
-                    <h2 className="rule-wizard__legend">Rule set</h2>
-                    <div className="rule-wizard__card">
-                        <span onClick={() => this.nextRank()}>
-                            {rank || "Any rank"}
-                        </span>
-                        {" of "} 
-                        <span onClick={() => this.nextSuit()}>
-                            {suit || "any suit"}
-                        </span>
-                    </div>
-                </div>
+                <fieldset>
+                    <legend className="h3 h3--fluff-top"><span>Add rule</span></legend>
+                    <div className="rule-wizard">
+                        <div className="rule-wizard__group">
+                            <label className="rule-wizard__legend">Rule set</label>
+                            <div className="rule-wizard__card">
+                                <button type="button" onClick={() => this.nextRank()}>
+                                    {capitalize(rank) || "Any rank"}
+                                </button>
+                                {" of "} 
+                                <button type="button" onClick={() => this.nextSuit()}>
+                                    {suit || "any suit"}
+                                </button>
+                            </div>
+                        </div>
 
-                <div className="rule-wizard__group">
-                    <h2 className="rule-wizard__legend">Color</h2>
-                    <div className="rule-wizard__color"> 
-                        <div 
-                            className={css(
-                                "rule-wizard__color__dot", 
-                                "rule-wizard__color__dot--black", 
-                                {  
-                                    "rule-wizard__color__dot--on": isBlack
-                                })
-                            } 
-                            onClick={e =>  this.setColor(true, null)}>  
-                        </div>  
-                        <div  
-                            className={css(
-                                "rule-wizard__color__dot", 
-                                "rule-wizard__color__dot--red", 
-                                {  
-                                    "rule-wizard__color__dot--on": isRed
-                                })
-                            } 
-                            onClick={e =>  this.setColor(null, true)}>  
-                        </div>  
-                        <div 
-                            className={css(
-                                "rule-wizard__color__dot",  
-                                {  
-                                    "rule-wizard__color__dot--on": !isBlack && !isRed
-                                })
-                            } 
-                            onClick={e =>  this.setColor(null, null) }>  
-                        </div>  
-                    </div>
-                </div>
+                        <div className="rule-wizard__group">
+                            <fieldset>
+                                <legend className="rule-wizard__legend">Color</legend>
+                                <ul 
+                                    className="rule-wizard__color"
+                                    onChange={e => {
+                                        let isBlack = e.target.value === "black" ? true : null 
+                                        let isRed = e.target.value === "red" ? true : null
 
-                <div className="rule-wizard__group">
-                    <h2 className="rule-wizard__legend">Text</h2>
-                    <div className="rule-wizard__text"> 
-                        <AutoTextarea
-                            label="Rule text" 
-                            value="Everybody drinks!"
-                            onChange={value => this.setState({ text: value })} /> 
-                    </div>
-                </div>
+                                        this.setColor(isBlack, isRed)
+                                    }}>
+                                    <li className="rule-wizard__color__element">
+                                        <label  
+                                            className={css(
+                                                "rule-wizard__color__dot",  
+                                                {  
+                                                    "rule-wizard__color__dot--on": !isBlack && !isRed
+                                                })
+                                            }> 
+                                            <input className="visually-hidden" name="color" value="any" type="radio" defaultChecked />
+                                            <span className="visually-hidden">Any color</span> 
+                                        </label>
+                                    </li>
+                                    <li className="rule-wizard__color__element">
+                                        <label 
+                                            className={css(
+                                                "rule-wizard__color__dot", 
+                                                "rule-wizard__color__dot--black", 
+                                                {  
+                                                    "rule-wizard__color__dot--on": isBlack
+                                                })
+                                            }> 
+                                            <input className="visually-hidden" name="color" value="black" type="radio" />
+                                            <span className="visually-hidden">Black</span>
+                                        </label>
+                                    </li>
+                                    <li className="rule-wizard__color__element">
+                                        <label 
+                                            className={css(
+                                                "rule-wizard__color__dot", 
+                                                "rule-wizard__color__dot--red", 
+                                                {  
+                                                    "rule-wizard__color__dot--on": isRed
+                                                })
+                                            }> 
+                                            <input className="visually-hidden" name="color" value="red" type="radio" />
+                                            <span className="visually-hidden">Red</span>
+                                        </label>
+                                    </li>
+                                </ul> 
+                            </fieldset>
+                        </div> 
 
-                <div className="rule-wizard__footer">
-                    <button className="button" type="submit">Add rule</button>  
-                </div>
+                        <div className="rule-wizard__group"> 
+                            <div className="rule-wizard__text"> 
+                                <AutoTextarea
+                                    label={<label className="rule-wizard__legend">Text</label>}
+                                    value="Everybody drinks!"
+                                    onChange={value => this.setState({ text: value })} /> 
+                            </div>
+                        </div>
+
+                        <div className="rule-wizard__footer">
+                            <button className="button" type="submit">Add rule</button>  
+                        </div>
+                    </div>
+                </fieldset> 
             </form>    
         )
     }

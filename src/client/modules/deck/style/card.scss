@@ -20,10 +20,10 @@
 
         &::before { 
             width: 100%;
+            content: "";
             display: block; 
             height: .1em;
-            margin-bottom: 3.75em;
-            content: "";
+            margin-bottom: 3.75em; 
             flex-basis: 100%; 
             background-image: linear-gradient(to right, white 33%, rgba(255,255,255,0) 0%);
             background-position: bottom;   
@@ -95,6 +95,10 @@
         font-family: Oswald;
         line-height: .95;
         flex-basis: 100%;
+
+        &__rank {
+            display: block;
+        }
 
         &--match {
             font-size: 2em;

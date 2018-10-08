@@ -1,24 +1,3 @@
 .rule {
     text-transform: uppercase;
-
-    &__text { 
-    }
-
-    &__color {
-        width: .5em;
-        height: .5em; 
-        margin-bottom: .15em;
-        display: inline-block;
-        margin-left: .5em;
-        border-radius: 50%;
-        box-shadow: 0 0 .75em solid rgba(#000, .75);
-
-        &--red {
-            background-color: red;
-        }
-
-        &--black {
-            background-color: black;
-        }
-    }
 }

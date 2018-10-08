@@ -1,44 +1,56 @@
 import "./style/rule.scss"
 
 import React from "react"
+import Only from "../shared/Only"
+import { capitalize } from "../../data/helpers/utils"
+
 
 function renderColor({ isRed, isBlack }) {
-    let res = "" 
-
     if (!isBlack && !isRed) {
         return null
-    }
-
-    if (isBlack) {
-        res = "rule__color--black"
-    }
-
-    if (isRed) {
-        res = "rule__color--red"
-    }
-
-    return (
-        <span className={"rule__color " + res } />
-    )
+    } 
+ 
+    return isRed ? "red" : "black"
 }
 
 function renderRank({ rank, isFace }){
-    return <span className="rule__rank">{isFace ? "Any face" : rank || "Any rank"}</span>
+    return <span className="rule__rank">{isFace ? "Any face" : capitalize(rank) || "Any rank"}</span>
 }
 
-function renderSuit({ suit }){
-    return <span className="rule__suit">{suit || "any suit"}</span>
+function renderSuit(set){
+    let color = renderColor(set)
+    
+    return (
+        <span className="rule__suit">
+            <Only if={!set.suit}>
+                any {color} suit
+            </Only>
+            <Only if={set.suit}>
+                {set.suit}
+            </Only>
+        </span>
+    )
 }
-
+  
 export default function({ rule }) {
     return (
-        <div className="rule">
+        <span className="rule">
             <span className="rule__text">
-                {renderRank(rule.set)}
-                {" of "}
-                {renderSuit(rule.set)}
+                <Only if={rule.set.rank || rule.set.suit}> 
+                    {renderRank(rule.set)}
+                    {" of "}
+                    {renderSuit(rule.set)} 
+                </Only>
+                <Only if={!rule.set.rank && !rule.set.suit && !rule.set.isRed && !rule.set.isBlack}> 
+                    Anything
+                </Only> 
+                <Only if={!rule.set.rank && !rule.set.suit && rule.set.isRed && !rule.set.isBlack}> 
+                    Anything red
+                </Only> 
+                <Only if={!rule.set.rank && !rule.set.suit && !rule.set.isRed && rule.set.isBlack}> 
+                    Anything black
+                </Only>
             </span>
-            {renderColor(rule.set)}
-        </div>
+        </span>
     )
 }

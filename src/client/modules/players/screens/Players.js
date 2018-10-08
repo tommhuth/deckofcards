@@ -17,25 +17,33 @@ export class Players extends React.Component {
         return (
             <Page>
                 <Container padded>
+                    <h1 className="visually-hidden">People</h1> 
                     <form
+                        noValidate
                         onSubmit={(e) => {
                             e.preventDefault()
                             addPlayer(this.state.name, "red")}
-                        }>
-                        <div className="add-player">
-                            <div className="add-player__input-wrapper"> 
-                                <input 
-                                    className="add-player__input"
-                                    value={this.state.name} 
-                                    onChange={e => this.setState({ name: e.target.value })} />
+                        }
+                    >
+                        <fieldset>
+                            <legend className="visually-hidden">Add player</legend>
+                            <div className="add-player">
+                                <div className="add-player__input-wrapper"> 
+                                    <input 
+                                        className="add-player__input"
+                                        type="text"
+                                        required
+                                        value={this.state.name} 
+                                        onChange={e => this.setState({ name: e.target.value })} />
+                                </div>
+                                <div className="add-player__submit-wrapper">  
+                                    <button className="add-player__submit">Add</button>
+                                </div>
                             </div>
-                            <div className="add-player__submit-wrapper">  
-                                <button className="add-player__submit">Add</button>
-                            </div>
-                        </div>
+                        </fieldset>
                     </form>
                 </Container>
-
+ 
                 <PlayersList players={players.roster} />
             </Page>
         )

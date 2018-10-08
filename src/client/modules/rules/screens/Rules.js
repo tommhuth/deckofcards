@@ -12,22 +12,23 @@ export class Rules extends React.Component {
         const { rules } = this.props  
 
         return (
-            <Page> 
+            <Page>  
                 <Container padded> 
+                    <h1 className="visually-hidden">Rules</h1>  
+                        
+                    <ul className="rules-list">
+                        {rules.active.map((rule, index) => (
+                            <li className="rules-list__element" key={index}> 
+                                <h2 className="rules-list__element__rule"> 
+                                    <Rule rule={rule} />
+                                </h2>
+                                <p className="rules-list__element__text">{rule.text}</p> 
+                            </li>
+                        ))}
+                    </ul> 
+ 
                     <RuleWizard /> 
-                </Container> 
-                
-                <h2 className="h3">Active rules</h2>
-                <ul className="rules-list">
-                    {rules.active.map((rule, index) => (
-                        <li className="rules-list__element" key={index}> 
-                            <div className="rules-list__element__rule"> 
-                                <Rule rule={rule} />
-                            </div>
-                            <p className="rules-list__element__text">{rule.text}</p> 
-                        </li>
-                    ))}
-                </ul>
+                </Container>  
             </Page>
         )
     }
