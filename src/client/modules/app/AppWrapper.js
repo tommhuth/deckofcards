@@ -1,8 +1,8 @@
 import "./style/app.scss"
 
-import React from "react"
-import { Icon, IconType } from "../shared/Icon"
-import { NavLink, Link } from "react-router-dom"
+import React from "react" 
+import Nav from "./Nav"
+import { Link } from "react-router-dom"
 
 export default class AppWrapper extends React.Component {
     render() {
@@ -14,22 +14,7 @@ export default class AppWrapper extends React.Component {
                             <Link to="/">Deck of cards</Link>
                         </div>
                         <div className="app__header__nav">
-                            <nav className="nav">
-                                <ul>
-                                    <li>
-                                        <NavLink to="/play">Play</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/people">People</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/rules">Rules</NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/share">Share</NavLink>
-                                    </li>
-                                </ul>
-                            </nav> 
+                            <Nav /> 
                         </div>
                         <hr className="app__header__ruler" />
                     </div>

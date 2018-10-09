@@ -1,0 +1,19 @@
+.nav {
+    text-transform: lowercase;
+    font-family: "EB Garamond", serif;
+    font-weight: 400;
+
+    .active {
+        font-style: italic;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            flex: none;
+            margin-left: 1em;
+        }
+    } 
+}

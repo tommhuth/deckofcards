@@ -1,12 +1,14 @@
+import "./style/deck-controls.scss"
+
 import React from "react"
 import { connect } from "react-redux"
 import { pullCard, resetDeck } from "./store/actions/deck" 
 
 export function DeckControls({ players, pullCard, resetDeck }){
     return (
-        <div className="toolbar">
-            <div className="toolbar__inner">  
-                <div className="toolbar__stuff">
+        <div className="deck-controls">
+            <div className="deck-controls__inner">  
+                <div className="deck-controls__stuff">
                     <button type="button" onClick={pullCard} aria-controls="deck">
                         Pull card 
                     </button> 
@@ -14,7 +16,7 @@ export function DeckControls({ players, pullCard, resetDeck }){
                         Reset 
                     </button> 
                 </div>
-                <ul className="toolbar__people">
+                <ul className="deck-controls__people">
                     {
                         players.roster.map(i => {
                             let Wrapper = i.id === players.active.id ? "strong" : React.Fragment
