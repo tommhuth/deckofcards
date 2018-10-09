@@ -47,11 +47,13 @@ body {
         text-align: center;
 
         span { 
-            background-color: #222;
+            background-color: #fff;
+            color: #222;
             padding-left: 1em;
             padding-right: 1em;
             display: inline-block;
             position: relative;
+            border-radius: .1em;
         }
 
         &::before, 

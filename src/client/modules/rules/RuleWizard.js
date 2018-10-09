@@ -71,7 +71,7 @@ export class RuleWizard extends React.Component {
                     this.addRule()
                 }}>   
                 <fieldset>
-                    <legend className="h3 h3--fluff-top"><span>Add rule</span></legend>
+                    <legend className="visually-hidden"><span>Add rule</span></legend>
                     <div className="rule-wizard">
                         <div className="rule-wizard__group">
                             <label className="rule-wizard__legend">Rule set</label>
