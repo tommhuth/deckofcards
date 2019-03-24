@@ -8,7 +8,7 @@ const init = {
 
 export default function (state = init, { type, payload }) {
     switch (type) { 
-        case RulesAction.AddRule:
+        case RulesAction.ADD_RULE:
             return { 
                 ...state, 
                 active: [
@@ -16,7 +16,7 @@ export default function (state = init, { type, payload }) {
                     payload
                 ]
             } 
-        case RulesAction.SetMatches:
+        case RulesAction.SET_MATCHES:
             return { 
                 ...state, 
                 matches: payload

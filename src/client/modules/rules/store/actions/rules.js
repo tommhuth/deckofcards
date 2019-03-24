@@ -5,24 +5,18 @@ import { makeDeck } from "../../../deck/utils/deck-maker"
 
 export function addRule(rule) {
     return function (dispatch) {
-        dispatch(rulesActions.addRule({
-            ...rule,
-            id: uuid.v4()
-        }))
+        dispatch(rulesActions.addRule({ ...rule, id: uuid.v4() }))
     }
 }
 
 export function checkMatch(rules, card) {
-    return function (dispatch, state) { 
-        let matches = getMatches(rules, card)
-        
-        if (matches.length) { 
-            console.info(matches)
-        }  
+    return function (dispatch) { 
+        let matches = getMatches(rules, card) 
             
         dispatch(rulesActions.setMatches(matches))
     }
 }
+
 export function getMatches(rules = [], card) {
     let result = []
     

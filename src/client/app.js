@@ -1,6 +1,8 @@
 import "babel-polyfill"
 import "../resources/resources"
 
+import { BrowserRouter } from "react-router-dom"
+import AppWrapper from "./modules/app/AppWrapper"
 import React from "react"
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
@@ -12,8 +14,12 @@ const store = makeStore()
 class Client extends React.Component {
     render() {
         return (
-            <Provider store={store} >
-                {routes}
+            <Provider store={store} > 
+                <BrowserRouter>
+                    <AppWrapper>
+                        {routes} 
+                    </AppWrapper>
+                </BrowserRouter>
             </Provider>
         )
     }

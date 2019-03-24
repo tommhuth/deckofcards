@@ -8,12 +8,12 @@ const init = {
 
 export default function (state = init, { type, payload }) {
     switch (type) {  
-        case DeckAction.ResetDeck:
+        case DeckAction.RESET_DECK:
             return {
                 used: [],
                 unused: makeDeck()
             }
-        case DeckAction.PullCard:
+        case DeckAction.PULL_CARD:
             return {
                 ...state,
                 used: [

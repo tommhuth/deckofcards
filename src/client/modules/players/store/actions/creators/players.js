@@ -1,18 +1,18 @@
 export const PlayersAction = {
-    AddPlayer: "players:add-player",
-    SetActivePlayer: "players:set-active-player"
+    ADD_PLAYER: "players:add-player",
+    SET_ACTIVE_PLAYER: "players:set-active-player"
 }
 
 export function addPlayer(name, color, id){
     return { 
-        type: PlayersAction.AddPlayer, 
+        type: PlayersAction.ADD_PLAYER, 
         payload: { name, color, id, createdAt: new Date().toISOString() }  
     }
 }
 
 export function setActivePlayer(player){
     return { 
-        type: PlayersAction.SetActivePlayer, 
+        type: PlayersAction.SET_ACTIVE_PLAYER, 
         payload: player   
     }
 }

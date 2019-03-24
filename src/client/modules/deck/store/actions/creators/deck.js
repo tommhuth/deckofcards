@@ -1,18 +1,18 @@
 export const DeckAction = { 
-    ResetDeck: "deck:reset-deck",
-    PullCard: "deck:pull-card",
+    RESET_DECK: "deck:reset-deck",
+    PULL_CARD: "deck:pull-card",
 }
 
 export function pullCard(owner) {
     return {
-        type: DeckAction.PullCard,
+        type: DeckAction.PULL_CARD,
         payload: owner
     }
 }
 
 export function resetDeck() {
     return {
-        type: DeckAction.ResetDeck
+        type: DeckAction.RESET_DECK
     }
 }
  
