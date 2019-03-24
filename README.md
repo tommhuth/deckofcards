@@ -1,3 +1,3 @@
-# React + ExpressJS boilerplate
+# Deck of cards
 
-Opinionated boilerplate for React and Express. Lots of stuff.
+Because your browser needs a drinking game 
